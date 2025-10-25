@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wonder & Time — Play</title>
+<link rel="canonical" href="https://wonder.plnt.earth/play" />
+<meta name="description" content="Five tiny, phone-friendly demos that let you feel time in 30 seconds." />
+<meta property="og:title" content="Wonder & Time — Play" />
+<meta property="og:description" content="Five canvas demos: clocks that disagree, evolving laws, dreamy time, black hole horizon, cosmic endings." />
+<meta property="og:image" content="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='1200' height='630' fill='%230b0b0f'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='system-ui' font-size='60'>Wonder &amp; Time — Play</text></svg>" />
+<meta name="theme-color" content="#0b0b0f" />
+<meta name="robots" content="noindex, nofollow" />
+<style>
+  :root{--bg:#0b0b0f;--ink:#eaeaf2;--muted:#9aa0a6;--line:#232334;--panel:#12121a;--acc:#b7ff8a;--btn:#181826;--focus:#ffd166}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Inter,Roboto,Arial,sans-serif}
+  a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+  .hc, .hc :root{--bg:#000;--ink:#fff;--muted:#fff;--line:#fff;--panel:#000;--acc:#0ff;--btn:#000;--focus:#ff0}
+  header{padding:18px clamp(16px,4vw,28px);border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center;justify-content:space-between}
+  .title{font-size:clamp(18px,4.6vw,28px);margin:0}
+  .controls{display:flex;gap:10px;flex-wrap:wrap}
+  .toggle{background:var(--btn);color:var(--ink);border:1px solid var(--line);padding:8px 10px;border-radius:999px}
+  main{padding:20px clamp(16px,4vw,28px);display:grid;gap:22px}
+  section.demo{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0))}
+  .head{display:flex;justify-content:space-between;gap:10px;padding:12px 12px 10px}
+  .head h2{margin:0;font-size:clamp(16px,4vw,22px)}
+  .book{color:var(--muted);font-size:.95rem}
+  .wrap{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  canvas{display:block;width:100%;height:auto;aspect-ratio:16/9}
+  .ui{display:flex;gap:12px;flex-wrap:wrap;padding:10px 12px}
+  .ui label{font-size:.92rem;color:var(--muted)}
+  .ui input[type="range"]{width:180px}
+  .cap{padding:10px 12px 14px;color:var(--muted);font-size:.98rem;line-height:1.35}
+  .try{padding:0 12px 12px;font-size:.92rem}
+  footer{padding:22px clamp(16px,4vw,28px);border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+</style>
+</head>
+<body>
+<header>
+  <h1 class="title">Wonder &amp; Time — Play</h1>
+  <div class="controls" role="group" aria-label="Display options">
+    <a class="toggle" href="https://wonder.plnt.earth" aria-label="Back to brief">← Brief</a>
+    <button class="toggle" id="rm">Reduce Motion: <strong id="rmS">Off</strong></button>
+    <button class="toggle" id="hc">High Contrast: <strong id="hcS">Off</strong></button>
+    <button class="toggle" id="cc">Captions: <strong id="ccS">On</strong></button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1) Rovelli -->
+  <section class="demo" id="rovelli">
+    <div class="head">
+      <div>
+        <h2>Clocks Don’t Agree</h2>
+        <div class="book">Inspired by <strong>The Order of Time</strong> — Carlo Rovelli</div>
+      </div>
+    </div>
+    <div class="wrap"><canvas id="cv1" role="img" aria-label="Two clocks at different heights; their time drifts slightly due to gravity."></canvas></div>
+    <div class="ui">
+      <label for="hgt">Raise Clock B (m)</label>
+      <input id="hgt" type="range" min="0" max="3000" step="10" value="500" />
+      <span id="usph" aria-live="polite"></span>
+    </div>
+    <p class="cap" data-cap>Lift a clock in a gravitational field and it ticks a bit faster. Raise Clock B and see the drift accrue as microseconds per hour.</p>
+    <p class="try"><em>Try it:</em> Lift the clock. Watch time drift.</p>
+  </section>
+
+  <!-- 2) Smolin -->
+  <section class="demo" id="smolin">
+    <div class="head">
+      <div>
+        <h2>History Matters</h2>
+        <div class="book">Inspired by <strong>Time Reborn</strong> — Lee Smolin</div>
+      </div>
+    </div>
+    <div class="wrap"><canvas id="cv2" role="img" aria-label="A grid pattern whose own rule morphs slowly over time."></canvas></div>
+    <div class="ui">
+      <label for="rule">Rule Drift</label>
+      <input id="rule" type="range" min="0" max="100" value="40" />
+      <label for="spd2">Tempo</label>
+      <input id="spd2" type="range" min="0" max="100" value="60" />
+    </div>
+    <p class="cap" data-cap>If laws can evolve, novelty belongs at the center. This automaton slowly changes its own rule as you scrub time—so the future isn’t just repetition.</p>
+    <p class="try"><em>Try it:</em> Scrub time. Watch rules learn.</p>
+  </section>
+
+  <!-- 3) Lightman -->
+  <section class="demo" id="lightman">
+    <div class="head">
+      <div>
+        <h2>Many Clocks, Many Cities</h2>
+        <div class="book">Inspired by <strong>Einstein’s Dreams</strong> — Alan Lightman</div>
+      </div>
+    </div>
+    <div class="wrap"><canvas id="cv3" role="img" aria-label="Three small scenes: slow-motion street, looping square, fading bench moment."></canvas></div>
+    <div class="ui">
+      <button class="toggle" data-mode="sticky">Sticky Time</button>
+      <button class="toggle" data-mode="loop">Looping Day</button>
+      <button class="toggle" data-mode="precious">Precious Moment</button>
+    </div>
+    <p class="cap" data-cap>Lightman’s fables turn relativity into feeling. Tap different “city rules” to see how life changes if time sticks, loops, or slips away as you hesitate.</p>
+    <p class="try"><em>Try it:</em> Tap a world. Feel its rules.</p>
+  </section>
+
+  <!-- 4) Levin -->
+  <section class="demo" id="levin">
+    <div class="head">
+      <div>
+        <h2>Approach the Horizon</h2>
+        <div class="book">Inspired by <strong>Black Hole Survival Guide</strong> — Janna Levin</div>
+      </div>
+    </div>
+    <div class="wrap"><canvas id="cv4" role="img" aria-label="A tiny ship nears a dark circle; outside clock speeds while onboard clock lags."></canvas></div>
+    <div class="ui">
+      <label>Drag the ship. Horizon is the dotted ring.</label>
+      <span id="bh" aria-live="polite"></span>
+    </div>
+    <p class="cap" data-cap>Near the edge, space and time twist. Outside observers see your clock crawl as you skim the horizon. Inside, your watch feels normal—until it doesn’t.</p>
+    <p class="try"><em>Try it:</em> Drag the ship. Meet the horizon.</p>
+  </section>
+
+  <!-- 5) Mack -->
+  <section class="demo" id="mack">
+    <div class="head">
+      <div>
+        <h2>Choose Your Ending</h2>
+        <div class="book">Inspired by <strong>The End of Everything</strong> — Katie Mack</div>
+      </div>
+    </div>
+    <div class="wrap"><canvas id="cv5" role="img" aria-label="Four different particle outcomes: cooling, ripping apart, collapsing, blinking out."></canvas></div>
+    <div class="ui">
+      <button class="toggle" data-end="heat">Heat Death</button>
+      <button class="toggle" data-end="rip">Big Rip</button>
+      <button class="toggle" data-end="crunch">Big Crunch</button>
+      <button class="toggle" data-end="vacuum">Vacuum Decay</button>
+    </div>
+    <p class="cap" data-cap>Four plausible finales; each sharpens what matters now. Tap to see how a particle field’s fate changes the “arrow” we feel.</p>
+    <p class="try"><em>Try it:</em> Pick a finale. Read the why.</p>
+  </section>
+
+</main>
+
+<footer>
+  Made for Service95 readers by Tristan · <a href="https://wonder.plnt.earth">Back to brief</a> · No ads, no tracking · Accessibility-first.
+</footer>
+
+<script>
+(function(){
+  const d=document,$=s=>d.querySelector(s),$$=s=>Array.from(d.querySelectorAll(s));
+  let reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, high=false, caps=true;
+  const apply=()=>{ d.body.classList.toggle('hc',high); $$('#main [data-cap]').forEach(p=>p.style.display=caps?'block':'none'); $('#rmS').textContent=reduced?'On':'Off'; $('#hcS').textContent=high?'On':'Off'; $('#ccS').textContent=caps?'On':'Off'; };
+  $('#rm').addEventListener('click',()=>{reduced=!reduced;apply()});
+  $('#hc').addEventListener('click',()=>{high=!high;apply()});
+  $('#cc').addEventListener('click',()=>{caps=!caps;apply()});
+  apply();
+
+  function size(cv){const w=cv.clientWidth|0,h=Math.round(w/(16/9)); if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h}}
+
+  /* 1) Rovelli */
+  const cv1=$('#cv1'), cx1=cv1.getContext('2d'); let H=+$('#hgt').value; const C=299792458,G=9.81;
+  function drawRov(t){
+    size(cv1); const w=cv1.width,h=cv1.height, mid=w/2; cx1.clearRect(0,0,w,h);
+    const bg=cx1.createLinearGradient(0,0,0,h); bg.addColorStop(0,'#0a0a12'); bg.addColorStop(1,'#141424'); cx1.fillStyle=bg; cx1.fillRect(0,0,w,h);
+    cx1.strokeStyle='rgba(255,255,255,0.15)'; cx1.lineWidth=2; cx1.beginPath(); cx1.moveTo(20,h-30); cx1.lineTo(w-20,h-30); cx1.stroke();
+    const r=50, A={x:w*0.3,y:h-30}, B={x:w*0.7,y:h-30-(H/3000)*(h-120)};
+    const frac=(G*H)/(C*C), us=frac*3.6e9; $('#usph').textContent=`Δ (B−A) ≈ ${us.toFixed(3)} μs/hour @ ${Math.round(H)} m`;
+    function clock(x,y,ph){cx1.fillStyle='rgba(0,0,0,0.5)'; cx1.beginPath(); cx1.arc(x,y,r+8,0,Math.PI*2); cx1.fill();
+      cx1.fillStyle='#101020'; cx1.strokeStyle='rgba(255,255,255,0.25)'; cx1.lineWidth=2;
+      cx1.beginPath(); cx1.arc(x,y,r,0,Math.PI*2); cx1.fill(); cx1.stroke();
+      for(let i=0;i<12;i++){const a=i*Math.PI/6,x1=x+Math.cos(a)*(r-8),y1=y+Math.sin(a)*(r-8),x2=x+Math.cos(a)*(r-2),y2=y+Math.sin(a)*(r-2);
+        cx1.strokeStyle='rgba(255,255,255,0.45)'; cx1.beginPath(); cx1.moveTo(x1,y1); cx1.lineTo(x2,y2); cx1.stroke();}
+      const ang=(t*0.002+ph)% (Math.PI*2); cx1.strokeStyle='#b7ff8a'; cx1.lineWidth=3; cx1.beginPath(); cx1.moveTo(x,y); cx1.lineTo(x+Math.cos(ang)*(r-12),y+Math.sin(ang)*(r-12)); cx1.stroke();}
+    clock(A.x,A.y,0); clock(B.x,B.y,us/1e6);
+  }
+  $('#hgt').addEventListener('input',e=>H=+e.target.value);
+
+  /* 2) Smolin */
+  const cv2=$('#cv2'), cx2=cv2.getContext('2d'); const grid={w:96,h:54,cells:new Uint8Array(96*54)};
+  for(let i=0;i<grid.cells.length;i++) grid.cells[i]=Math.random()<0.5?1:0;
+  const id=(x,y)=>((y+grid.h)%grid.h)*grid.w+((x+grid.w)%grid.w);
+  let drift=+$('#rule').value/100, tempo=+$('#spd2').value/100;
+  $('#rule').addEventListener('input',e=>drift=+e.target.value/100);
+  $('#spd2').addEventListener('input',e=>tempo=+e.target.value/100);
+  function step(t){
+    const next=new Uint8Array(grid.w*grid.h); const morph=0.2*drift*Math.sin(t*0.0004);
+    for(let y=0;y<grid.h;y++)for(let x=0;x<grid.w;x++){
+      let n=0; for(let j=-1;j<=1;j++)for(let i=-1;i<=1;i++){if(i||j)n+=grid.cells[id(x+i,y+j)]}
+      const alive=grid.cells[id(x,y)]===1; let born=(n===3),surv=(n===2||n===3);
+      if(Math.random()<0.15+morph){ born=(n===3)||(n===4); surv=(n===2)||(n===3)||(n===4 && Math.random()<0.5); }
+      next[id(x,y)]=(alive&&surv)||(!alive&&born)?1:0;
+    }
+    grid.cells=next;
+  }
+  function drawGrid(){
+    size(cv2); const w=cv2.width,h=cv2.height,cw=Math.floor(w/grid.w),ch=Math.floor(h/grid.h);
+    cx2.clearRect(0,0,w,h);
+    for(let y=0;y<grid.h;y++)for(let x=0;x<grid.w;x++){ const v=grid.cells[id(x,y)];
+      cx2.fillStyle=v?'#b7ff8a':'rgba(255,255,255,0.06)'; cx2.fillRect(x*cw,y*ch,cw,ch);}
+  }
+
+  /* 3) Lightman */
+  const cv3=$('#cv3'), cx3=cv3.getContext('2d'); let mode='sticky', lastMove=performance.now();
+  $$('#lightman .ui .toggle').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode}));
+  cv3.addEventListener('pointermove',()=>{lastMove=performance.now()});
+  function drawLightman(t){
+    size(cv3); const w=cv3.width,h=cv3.height; cx3.clearRect(0,0,w,h);
+    cx3.fillStyle='rgba(255,255,255,0.03)'; cx3.fillRect(0,0,w,h);
+    const N=60,cx=w/2,cy=h/2;
+    for(let i=0;i<N;i++){
+      const a=i*(Math.PI*2/N)+(mode==='loop'?t*0.0008:t*0.0002);
+      let r=Math.min(w,h)*0.35+Math.sin(i*3.1+t*0.0005)*10; if(mode==='sticky') r*=0.7;
+      const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;
+      const idle=(t-lastMove)/1000; let alpha=0.9; if(mode==='precious'){alpha=Math.max(0.2,1.0-idle*0.25)}
+      if(!reduced && mode==='loop'){ cx3.fillStyle='rgba(183,255,138,0.12)'; for(let k=5;k>0;k--){ const aa=a-k*0.08, xx=cx+Math.cos(aa)*r, yy=cy+Math.sin(aa)*r; cx3.beginPath(); cx3.arc(xx,yy,2.2,0,Math.PI*2); cx3.fill(); } }
+      cx3.fillStyle=`rgba(183,255,138,${alpha})`; cx3.beginPath(); cx3.arc(x,y,2.6,0,Math.PI*2); cx3.fill();
+    }
+    cx3.fillStyle='rgba(255,255,255,0.6)'; cx3.font='14px system-ui';
+    if(mode==='sticky') cx3.fillText('Sticky: motion slows', 12, 22);
+    if(mode==='loop') cx3.fillText('Loop: paths repeat', 12, 22);
+    if(mode==='precious') cx3.fillText('Precious: hesitation fades', 12, 22);
+  }
+
+  /* 4) Levin */
+  const cv4=$('#cv4'), cx4=cv4.getContext('2d'); const BH={rRatio:0.18}; let ship={x:0.55,y:0.5,drag:false};
+  cv4.addEventListener('pointerdown',()=>{ship.drag=true}); d.addEventListener('pointerup',()=>{ship.drag=false});
+  cv4.addEventListener('pointermove',e=>{ if(!ship.drag)return; const r=cv4.getBoundingClientRect(); ship.x=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)); ship.y=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height)); });
+  function drawBH(t){
+    size(cv4); const w=cv4.width,h=cv4.height,s=Math.min(w,h),cx=w/2,cy=h/2,rH=s*BH.rRatio;
+    const grad=cx4.createRadialGradient(cx,cy,0,cx,cy,s*0.8); grad.addColorStop(0,'#0c0c16'); grad.addColorStop(1,'#06060c'); cx4.fillStyle=grad; cx4.fillRect(0,0,w,h);
+    cx4.fillStyle='#000'; cx4.beginPath(); cx4.arc(cx,cy,rH*0.6,0,Math.PI*2); cx4.fill();
+    cx4.setLineDash([6,6]); cx4.strokeStyle='rgba(255,255,255,0.35)'; cx4.lineWidth=2; cx4.beginPath(); cx4.arc(cx,cy,rH,0,Math.PI*2); cx4.stroke(); cx4.setLineDash([]);
+    const sx=ship.x*w, sy=ship.y*h; const dist=Math.max(1,Math.hypot(sx-cx,sy-cy)); const r=dist, rs=rH;
+    let gamma=Math.sqrt(Math.max(0.001,1-(rs/r))); gamma=Math.max(0.05,Math.min(1,gamma)); const outside=1/gamma;
+    $('#bh').textContent=`Outside ×${outside.toFixed(2)}, Onboard ×${gamma.toFixed(2)}`;
+    cx4.fillStyle='#b7ff8a'; cx4.beginPath(); cx4.arc(sx,sy,6,0,Math.PI*2); cx4.fill();
+    if(r<rs*1.02){ cx4.fillStyle='rgba(255,100,100,0.6)'; cx4.font='14px system-ui'; cx4.fillText('Point of no return', sx+10, sy-10); }
+  }
+
+  /* 5) Mack */
+  const cv5=$('#cv5'), cx5=cv5.getContext('2d'); let end='heat'; const P=[];
+  function init(){ P.length=0; for(let i=0;i<260;i++) P.push({x:Math.random(),y:Math.random(),vx:(Math.random()-0.5)*0.002,vy:(Math.random()-0.5)*0.002,a:1}); }
+  init();
+  $$('#mack .ui .toggle').forEach(b=>b.addEventListener('click',()=>{end=b.dataset.end}));
+  function drawMack(t){
+    size(cv5); const w=cv5.width,h=cv5.height; cx5.clearRect(0,0,w,h);
+    for(const p of P){
+      if(end==='heat'){ p.vx*=0.999; p.vy*=0.999; }
+      if(end==='rip'){ p.vx+=(p.x-0.5)*0.00002; p.vy+=(p.y-0.5)*0.00002; }
+      if(end==='crunch'){ p.vx+=(0.5-p.x)*0.00005; p.vy+=(0.5-p.y)*0.00005; }
+      if(end==='vacuum'){ if(Math.random()<0.002) p.a=0; }
+      p.x+=p.vx; p.y+=p.vy; if(end!=='rip'){ if(p.x<0||p.x>1)p.vx*=-1; if(p.y<0||p.y>1)p.vy*=-1; }
+      cx5.fillStyle=`rgba(183,255,138,${end==='vacuum'?p.a:0.85})`; cx5.fillRect(p.x*w,p.y*h,2,2);
+    }
+    if(end==='vacuum' && !reduced && Math.random()<0.01){ const bx=Math.random()*w, by=Math.random()*h; cx5.strokeStyle='rgba(255,120,120,0.8)'; cx5.beginPath(); cx5.arc(bx,by,30,0,Math.PI*2); cx5.stroke(); }
+  }
+
+  /* Loop */
+  let last=0;
+  function tick(ts){
+    if(!last) last=ts; const dt=ts-last; last=ts;
+    drawRov(ts);
+    if(!reduced){
+      const steps=Math.max(1,Math.floor((tempo*0.5+0.5)*1)); for(let s=0;s<steps;s++) step(ts+s*16);
+    }
+    drawGrid(); drawLightman(ts); drawBH(ts); drawMack(ts);
+    if(!reduced) requestAnimationFrame(tick);
+  }
+  let tempo=+$('#spd2').value/100;
+  $('#spd2').addEventListener('input',e=>tempo=+e.target.value/100);
+
+  ['input','click','pointermove'].forEach(ev=>{
+    d.addEventListener(ev,()=>{ if(reduced){ drawRov(performance.now()); drawGrid(); drawLightman(performance.now()); drawBH(performance.now()); drawMack(performance.now()); } },{passive:true});
+  });
+
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
