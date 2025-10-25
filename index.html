@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wonder & Time — Brief (Service95 Companion)</title>
+<link rel="canonical" href="https://wonder.plnt.earth/" />
+<meta name="description" content="A crisp proposal for Service95: a 5-book ‘Wonder & Time’ list + a tiny interactive companion that lets readers feel the physics in 30 seconds." />
+<meta property="og:title" content="Wonder & Time — Brief (Service95 Companion)" />
+<meta property="og:description" content="Proposal: 5-book list + interactive one-pager that turns big ideas about time into touchable moments." />
+<meta property="og:image" content="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='1200' height='630' fill='%230b0b0f'/><text x='50%' y='48%' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='system-ui' font-size='60'>Wonder &amp; Time</text><text x='50%' y='70%' dominant-baseline='middle' text-anchor='middle' fill='%23b7ff8a' font-family='system-ui' font-size='28'>Service95 Companion — Brief (Preview)</text></svg>" />
+<meta name="theme-color" content="#0b0b0f" />
+
+<!-- PRIVATE PREVIEW: remove this line to allow indexing -->
+<meta name="robots" content="noindex, nofollow" />
+
+<style>
+  :root{
+    --bg:#0b0b0f; --panel:#12121a; --ink:#edf0f7; --muted:#9aa0a6; --line:#232334;
+    --acc:#b7ff8a; --focus:#ffd166; --btn:#181826;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
+  a{color:var(--acc);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .preview{background:#1f1a00;color:#ffe9a6;text-align:center;font-size:.92rem;padding:8px 12px;border-bottom:1px solid #3a3100}
+  header{padding:28px clamp(16px,5vw,40px); border-bottom:1px solid var(--line)}
+  .brand{display:flex;gap:14px;align-items:center}
+  .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#1a1a28,#101018);border:1px solid var(--line);display:grid;place-items:center}
+  .logo span{font-weight:700;color:var(--acc)}
+  h1{margin:8px 0 0;font-size:clamp(22px,5.5vw,40px);line-height:1.08;letter-spacing:.2px}
+  .tag{color:var(--muted);margin-top:6px}
+  .top-actions{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+  .btn{background:var(--btn);color:var(--ink);border:1px solid var(--line);padding:10px 14px;border-radius:12px;font-size:.96rem}
+  .btn:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+  main{padding:24px clamp(16px,5vw,40px); display:grid; gap:22px; max-width:1120px; margin:0 auto}
+  section{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0)); border:1px solid var(--line); border-radius:16px; overflow:hidden}
+  .section-head{padding:16px 16px 8px;border-bottom:1px solid var(--line)}
+  h2{margin:0;font-size:clamp(18px,3.8vw,24px)}
+  .section-body{padding:16px; color:var(--ink)}
+  .grid{display:grid;gap:14px}
+  @media (min-width:840px){ .grid.cols-2{grid-template-columns:1fr 1fr} .grid.cols-3{grid-template-columns:1fr 1fr 1fr}}
+  .card{border:1px dashed var(--line); border-radius:14px; padding:14px}
+  .muted{color:var(--muted)}
+  .kicker{font-size:.92rem;color:var(--muted);letter-spacing:.3px;text-transform:uppercase}
+  ul{margin:0 0 0 18px}
+  li{margin:6px 0}
+  .book{display:flex;gap:10px;align-items:flex-start}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--acc);margin-top:8px;flex:0 0 auto}
+  .copy{white-space:pre-wrap}
+  footer{padding:24px clamp(16px,5vw,40px); border-top:1px solid var(--line); color:var(--muted)}
+  .small{font-size:.92rem}
+  .pill{display:inline-block;border:1px solid var(--line);padding:4px 8px;border-radius:999px;font-size:.85rem;margin-right:6px}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .callout{border-left:3px solid var(--acc);padding:10px 12px;background:rgba(183,255,138,0.05);border-radius:8px}
+  .sharebar{display:flex;gap:10px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="preview">🔒 Private preview — search engines are blocked (noindex). Remove the yellow bar and the robots meta when approved.</div>
+
+<header>
+  <div class="brand">
+    <div class="logo" aria-hidden="true"><span>W</span></div>
+    <div>
+      <div class="kicker">Wonder &amp; Time</div>
+      <h1>Service95 Book Club — Mini-Feature Proposal</h1>
+      <div class="tag">A 5-book list + a tiny interactive companion that lets readers <em>feel</em> time in 30 seconds.</div>
+    </div>
+  </div>
+  <div class="top-actions" role="group" aria-label="Quick actions">
+    <a class="btn" href="#tldr">TL;DR</a>
+    <a class="btn" href="#books">Book List</a>
+    <a class="btn" href="#companion">Companion Demos</a>
+    <button class="btn" id="printBtn" aria-label="Print or save PDF">Print / Save PDF</button>
+    <button class="btn" id="copyEmail" aria-label="Copy outreach email">Copy Email Draft</button>
+  </div>
+</header>
+
+<main>
+
+  <section id="tldr">
+    <div class="section-head"><h2>TL;DR</h2></div>
+    <div class="section-body grid cols-2">
+      <div class="card">
+        <p><strong>What:</strong> “Wonder &amp; Time” — a concise <strong>5-book list</strong> + a <strong>one-page companion</strong> where each book becomes a 30-second, phone-friendly demo.</p>
+        <p><strong>Why Service95:</strong> global, curious, accessible. We pair reading with a playful way to test ideas hands-on — no jargon, no tracking.</p>
+        <p><strong>Delivery:</strong> private preview in 48 hours, final assets aligned to Service95 brand &amp; accessibility.</p>
+      </div>
+      <div class="card">
+        <p class="kicker">Outcomes</p>
+        <ul>
+          <li>Readers grasp time/relativity via touch.</li>
+          <li>Share-ready snippets for IG/TikTok/Threads.</li>
+          <li>Optional <em>Scientist’s Corner</em>: 3 short, testable Qs with Lee Smolin.</li>
+        </ul>
+        <p><span class="pill">No ads</span><span class="pill">No tracking</span><span class="pill">Alt-text</span><span class="pill">High-contrast</span><span class="pill">Reduced-motion</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="books">
+    <div class="section-head"><h2>The 5-Book “Wonder &amp; Time” List</h2></div>
+    <div class="section-body">
+      <div class="book card">
+        <div class="dot" aria-hidden="true"></div>
+        <div>
+          <p><strong>1) The Order of Time — Carlo Rovelli</strong></p>
+          <p class="muted">A lyrical tour of what “time” means when clocks disagree.</p>
+          <p class="copy">Demo tie-in: <em>Clocks Don’t Agree</em> — raise one clock; watch microseconds drift per hour.</p>
+        </div>
+      </div>
+      <div class="book card">
+        <div class="dot" aria-hidden="true"></div>
+        <div>
+          <p><strong>2) Time Reborn — Lee Smolin</strong></p>
+          <p class="muted">A bold case that time is fundamental — and testable.</p>
+          <p class="copy">Demo tie-in: <em>History Matters</em> — a grid whose rule evolves, so the future isn’t repetition.</p>
+        </div>
+      </div>
+      <div class="book card">
+        <div class="dot" aria-hidden="true"></div>
+        <div>
+          <p><strong>3) Einstein’s Dreams — Alan Lightman</strong></p>
+          <p class="muted">Fables that make relativity emotionally graspable.</p>
+          <p class="copy">Demo tie-in: <em>Many Clocks, Many Cities</em> — tap: sticky time, looping day, precious moment.</p>
+        </div>
+      </div>
+      <div class="book card">
+        <div class="dot" aria-hidden="true"></div>
+        <div>
+          <p><strong>4) Black Hole Survival Guide — Janna Levin</strong></p>
+          <p class="muted">A witty field guide to horizons, dilation, and falling in.</p>
+          <p class="copy">Demo tie-in: <em>Approach the Horizon</em> — drag a ship toward a black circle; outside vs onboard clocks diverge.</p>
+        </div>
+      </div>
+      <div class="book card">
+        <div class="dot" aria-hidden="true"></div>
+        <div>
+          <p><strong>5) The End of Everything — Katie Mack</strong></p>
+          <p class="muted">Cosmic finales that strangely sharpen what matters now.</p>
+          <p class="copy">Demo tie-in: <em>Choose Your Ending</em> — Heat Death, Big Rip, Big Crunch, Vacuum Decay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="companion">
+    <div class="section-head"><h2>The One-Page Interactive Companion</h2></div>
+    <div class="section-body grid cols-2">
+      <div class="card">
+        <p class="kicker">Format</p>
+        <ul>
+          <li><strong>Five micro-demos</strong> (Canvas 2D), each 30 seconds.</li>
+          <li><strong>Accessibility:</strong> High-contrast, Reduced-motion, visible focus, alt-text everywhere.</li>
+          <li><strong>Mobile-first:</strong> tap/drag gestures, captions on by default.</li>
+        </ul>
+        <p class="kicker">Share</p>
+        <ul>
+          <li>One caption per demo (<=280 chars) + OG image (1200×630) + Story art (1080×1920).</li>
+          <li>Buttons: <span class="pill">Copy Link</span> <span class="pill">X</span> <span class="pill">Instagram</span> <span class="pill">TikTok</span> <span class="pill">Threads</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="kicker">Ethos</p>
+        <div class="callout">
+          No tricks. No data collection. Just wonder you can touch. Readers who never loved equations still leave with an intuition that sticks.
+        </div>
+        <p class="kicker" style="margin-top:10px;">Optional Scientist’s Corner</p>
+        <ul>
+          <li>3 short, testable questions with physicist Lee Smolin (asynchronous answers welcome).</li>
+          <li>We publish with full credit — or keep private if preferred.</li>
+        </ul>
+        <p class="muted small">Contact available via academic channels; we’ll keep the lift light (15–20 minutes).</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="accessibility">
+    <div class="section-head"><h2>Accessibility &amp; Brand Fit</h2></div>
+    <div class="section-body grid cols-2">
+      <div class="card">
+        <p class="kicker">Built-in</p>
+        <ul>
+          <li>High contrast theme</li>
+          <li>Reduced motion safe defaults</li>
+          <li>Keyboard operable, visible focus</li>
+          <li>Alt-text + captions on by default</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="kicker">Brand</p>
+        <ul>
+          <li>We follow Service95 typography/color guidance.</li>
+          <li>No logos or marks without permission.</li>
+          <li>Public language: “Made for Service95 readers by Tristan.”</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="outreach">
+    <div class="section-head"><h2>Outreach Email (copy-ready)</h2></div>
+    <div class="section-body">
+      <pre class="card mono small" id="emailText">To: books@service95.com
+Cc (optional): editors@service95.com, podcast@service95.com
+Subject: Idea for Service95 Book Club — “Wonder & Time” mini-list + interactive companion
+
+Hi Service95 team,
+
+I’m Tristan, building a public physics-meets-art project called Illumina: Time. I’d love to suggest a short Service95 Book Club feature: “Wonder & Time: 5 books that unlock the universe,” paired with a tiny, mobile-first companion page that turns one idea from each book into a 30-second interactive demo (no ads, no tracking).
+
+Proposed 5-book list (accessible, diverse voices):
+1) The Order of Time — Carlo Rovelli
+2) Time Reborn — Lee Smolin
+3) Einstein’s Dreams — Alan Lightman
+4) Black Hole Survival Guide — Janna Levin
+5) The End of Everything — Katie Mack
+
+Interactive companion (one page):
+• Five quick “feel the idea” demos (e.g., time dilation slider; horizon line; entropy arrows).
+• “Read • Try • Share” prompts optimized for phones.
+• Alt text, high contrast, and reduced-motion options built in.
+
+Bonus Q&A (optional):
+I can source three short, testable questions for a mini Q&A with physicist Lee Smolin via his academic contact. It would sit alongside the list as a “Scientist’s Corner.”
+
+If this resonates, I can send a private preview link and assets within 48 hours and align fully with Service95’s brand and accessibility guidelines.
+
+Thanks so much for considering — I’m a big fan of the Book Club and At Your Service.
+
+Warmly,
+Tristan White
+&lt;your email&gt; · &lt;your site or socials&gt;
+(Preview link available on request)</pre>
+      <div class="sharebar">
+        <button class="btn" id="copyEmailBtn">Copy Email</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-head"><h2>Contact &amp; Socials</h2></div>
+    <div class="section-body grid cols-2">
+      <div class="card">
+        <p><strong>Tristan White</strong></p>
+        <p class="muted">Creator — Illumina: Time</p>
+        <p>Email: <span class="mono">&lt;you@yourdomain.com&gt;</span></p>
+        <p>Site: <span class="mono">https://wonder.plnt.earth</span></p>
+      </div>
+      <div class="card">
+        <p class="kicker">Socials</p>
+        <ul>
+          <li>Instagram: <span class="mono">@yourhandle</span></li>
+          <li>TikTok: <span class="mono">@yourhandle</span></li>
+          <li>X (Twitter): <span class="mono">@yourhandle</span></li>
+          <li>YouTube: <span class="mono">youtube.com/@yourhandle</span></li>
+          <li>LinkedIn (optional): <span class="mono">linkedin.com/in/yourname</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="small">Made for Service95 readers by Tristan · No ads, no tracking · Accessibility-first.</div>
+</footer>
+
+<script>
+(function(){
+  var printBtn = document.getElementById('printBtn');
+  var copyEmailBtn = document.getElementById('copyEmailBtn');
+  var emailText = document.getElementById('emailText');
+
+  function safeCopy(text, btn){
+    if(!navigator.clipboard){ return; }
+    navigator.clipboard.writeText(text).then(function(){
+      if(btn){ var old = btn.textContent; btn.textContent = 'Copied ✓'; setTimeout(function(){ btn.textContent = old; }, 1200); }
+    });
+  }
+
+  document.getElementById('copyEmail')?.addEventListener('click', function(){
+    safeCopy(emailText.textContent, this);
+  });
+
+  copyEmailBtn.addEventListener('click', function(){
+    safeCopy(emailText.textContent, this);
+  });
+
+  printBtn.addEventListener('click', function(){ window.print(); });
+})();
+</script>
+</body>
+</html>
