@@ -10,6 +10,7 @@
 <meta property="og:description" content="Proposal: 5-book list + interactive one-pager that turns big ideas about time into touchable moments." />
 <meta property="og:image" content="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='1200' height='630' fill='%230b0b0f'/><text x='50%' y='48%' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='system-ui' font-size='60'>Wonder &amp; Time</text><text x='50%' y='70%' dominant-baseline='middle' text-anchor='middle' fill='%23b7ff8a' font-family='system-ui' font-size='28'>Service95 Companion — Brief (Preview)</text></svg>" />
 <meta name="theme-color" content="#0b0b0f" />
+<!-- PRIVATE PREVIEW: remove this to allow indexing -->
 <meta name="robots" content="noindex, nofollow" />
 <style>
   :root{--bg:#0b0b0f;--panel:#12121a;--ink:#edf0f7;--muted:#9aa0a6;--line:#232334;--acc:#b7ff8a;--focus:#ffd166;--btn:#181826}
@@ -58,12 +59,18 @@
       <div class="kicker">Wonder &amp; Time</div>
       <h1>Service95 Book Club — Mini-Feature Proposal</h1>
       <div class="tag">A 5-book list + a tiny interactive companion that lets readers <em>feel</em> time in 30 seconds.</div>
+      <div style="margin-top:8px;">
+        <a href="/play" aria-label="Open the interactive demos">Try the demos →</a>
+      </div>
     </div>
   </div>
+
+  <!-- Header action bar (with Play Demos button) -->
   <div class="top-actions" role="group" aria-label="Quick actions">
     <a class="btn" href="#tldr">TL;DR</a>
     <a class="btn" href="#books">Book List</a>
     <a class="btn" href="#companion">Companion Demos</a>
+    <a class="btn" href="/play" aria-label="Open the interactive demos">Play Demos →</a>
     <button class="btn" id="printBtn" aria-label="Print or save PDF">Print / Save PDF</button>
     <button class="btn" id="copyEmail" aria-label="Copy outreach email">Copy Email Draft</button>
   </div>
